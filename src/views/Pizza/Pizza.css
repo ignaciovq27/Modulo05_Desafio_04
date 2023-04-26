@@ -10,7 +10,7 @@
     gap: 20px
 }
 
-.pizza-container h3 {
+.pizza-container h2 {
     margin: 0;
     padding: 0;
 }
@@ -18,12 +18,22 @@
 .pizza-container .card-style {
     max-width: 70rem;
     margin: auto;
-    /* margin-left: 40px; */
-    /* margin-right: 40px; */
     padding: 3px;
     box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 }
 
 .margin-style {
     margin: 20px;
+}
+
+.ul-style {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    padding-left: 15px;
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: start;
 }

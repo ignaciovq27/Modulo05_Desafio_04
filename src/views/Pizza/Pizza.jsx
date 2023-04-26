@@ -34,14 +34,14 @@ export default function Pizza() {
                   {pizza.desc}
                 </Card.Text>
                 <h5>Ingredientes:</h5>
-                <ul className="ul-style" >
+                <ul className="ul-style">
                   {pizza.ingredients.map((ingredient, i) => (
                     <li className="text-style2" key={i}>🍕{ingredient}</li>
                   ))}
                 </ul>
               </Card.Body>
               <Card.Body className="d-flex justify-content-between align-items-center">
-                <h3>Precio: {pizza.price.toLocaleString('es-CL', { style: 'currency', currency: 'CLP' })}</h3>
+                <h2>Precio: {pizza.price.toLocaleString('es-CL', { style: 'currency', currency: 'CLP' })}</h2>
                 <Link to={`/pizza/${pizza.id}`} className="brand-style">
                   <Button className="mx-3 py-2 btn-style" variant="warning">Añadir 🛒</Button>
                 </Link>

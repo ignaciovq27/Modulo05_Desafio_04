@@ -9,6 +9,12 @@
     width: 70%;
 }
 
+.gallery-container h3 {
+    margin: 0;
+    padding-bottom: 20px;
+    font-size: 34px;
+}
+
 .gallery-container .card-style {
     width: 20rem;
     margin: 10px;
@@ -24,7 +30,7 @@
     transform: scale(1.05);
 }
 
-.ul-style {
+.gallery-container .ul-style {
     list-style-type: none;
     margin: 0;
     padding-left: 93px;

@@ -25,7 +25,7 @@ export default function Gallery() {
                   <Card.Title className="text-style">{pizza.name}</Card.Title>
                   <hr></hr>
                   <h5>Ingredientes:</h5>
-                  <ul className="ul-style" >
+                  <ul className="ul-style">
                     {pizza.ingredients.map((ingredient, i) => (
                       <li className="text-style2" key={i}>🍕{ingredient}</li>
                     ))}

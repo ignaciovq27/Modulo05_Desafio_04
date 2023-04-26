@@ -41,9 +41,12 @@ export default function MyNavbar() {
                         <div>
                             <Nav>
                                 <Link to="/shopping-cart" className="brand-style">
-                                    <Button className="mx-3 py-1 btn-style2" variant="warning"><span className="span-style">🛒 $999.999</span></Button>
+                                    <Button className="mx-3 py-1 btn-style2" variant="warning">
+                                        <span className="span-style">
+                                            🛒 $999.999
+                                        </span>
+                                    </Button>
                                 </Link>
-
                             </Nav>
                         </div>
                     </Container>

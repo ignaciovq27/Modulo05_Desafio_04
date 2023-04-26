@@ -1,16 +1,13 @@
 // css
+import "../Pizza/Pizza.css"
 
 //components
 import { useContext } from "react";
 import { Context } from "../../MyContext";
 import { useParams } from "react-router-dom";
-
-//
 import { Link } from "react-router-dom";
 import Card from 'react-bootstrap/Card';
-import ListGroup from 'react-bootstrap/ListGroup';
 import { Button } from "react-bootstrap";
-//
 
 export default function Pizza() {
 
@@ -22,37 +19,38 @@ export default function Pizza() {
   // console.log(pizza)
 
   return (
-    <div className="home-container">
-      <h2 className="mt-4 mb-0">Pizza {pizza.name}</h2>
-      <div key={pizza.id}>
-        <div>
-          <Card className="card-style">
-            <Card.Img variant="top" src={pizza.img} />
-            <Card.Body>
-              <Card.Title className="text-style">{pizza.name}</Card.Title>
-              <hr></hr>
-              <h5>Ingredientes:</h5>
-              <ul className="ul-style" >
-                {pizza.ingredients.map((ingredient, i) => (
-                  <li className="text-style2" key={i}>🍕{ingredient}</li>
-                ))}
-              </ul>
-            </Card.Body>
-            <ListGroup className="list-group-flush">
-              <Card.Title className="text-style">{pizza.desc}</Card.Title>
-            </ListGroup>
-            <Card.Body>
-              <h3>{pizza.price.toLocaleString('es-CL', { style: 'currency', currency: 'CLP' })}</h3>
-              <Link to={`/pizza/${pizza.id}`} className="brand-style">
-                {/* <Button className="mx-3 py-2 btn-style">Ver más 👀</Button> */}
-              </Link>
-              <Button className="mx-3 py-2 btn-style" variant="warning">Añadir 🛒</Button>
-            </Card.Body>
-          </Card>
-        </div>
+    <div className="pizza-container" key={pizza.id}>
+      <div className="margin-style">
+        <Card className="mb-3 card-style">
+          <div className="row g-0">
+            <div className="col-md-4 d-flex justify-content-center">
+              <Card.Img className="card-img-style object-fit img-fluid" src={pizza.img} />
+            </div>
+            <div className="col-md-8">
+              <Card.Body>
+                <Card.Title className="text-style">{pizza.name}</Card.Title>
+                <hr></hr>
+                <Card.Text>
+                  {pizza.desc}
+                </Card.Text>
+                <h5>Ingredientes:</h5>
+                <ul className="ul-style" >
+                  {pizza.ingredients.map((ingredient, i) => (
+                    <li className="text-style2" key={i}>🍕{ingredient}</li>
+                  ))}
+                </ul>
+              </Card.Body>
+              <Card.Body className="d-flex justify-content-between align-items-center">
+                <h3>Precio: {pizza.price.toLocaleString('es-CL', { style: 'currency', currency: 'CLP' })}</h3>
+                <Link to={`/pizza/${pizza.id}`} className="brand-style">
+                  <Button className="mx-3 py-2 btn-style" variant="warning">Añadir 🛒</Button>
+                </Link>
+              </Card.Body>
+            </div>
+          </div>
+        </Card>
       </div>
     </div>
-
   );
 }
 

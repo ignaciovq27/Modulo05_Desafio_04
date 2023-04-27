@@ -8,6 +8,8 @@ export const Context = createContext();
 export function MyContext({ children }) {
 
     const [pizzas, setPizzas] = useState([])
+    const [cartAmount, setCartAmount] = useState(0)
+    const [pizzasCount, setPizzasCount] = useState(0)
 
     useEffect(() => {
         getData();
@@ -28,6 +30,6 @@ export function MyContext({ children }) {
         }
     }
 
-    const globalState = { pizzas }
+    const globalState = { pizzas, cartAmount, setCartAmount, pizzasCount, setPizzasCount }
     return <Context.Provider value={globalState}>{children}</Context.Provider>
 }

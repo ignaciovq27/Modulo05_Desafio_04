@@ -3,13 +3,18 @@ import "./MyNavbar.css"
 
 //components
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { Context } from "../../MyContext";
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
+import Badge from 'react-bootstrap/Badge';
+// import Form from 'react-bootstrap/Form';
 
 export default function MyNavbar() {
+
+    const { cartAmount, pizzasCount } = useContext(Context)
     return (
         <>
             <div className="sticky">
@@ -38,17 +43,21 @@ export default function MyNavbar() {
                             </div> */}
                         </div>
 
-                        <div>
-                            <Nav>
-                                <Link to="/shopping-cart" className="brand-style">
-                                    <Button className="mx-3 py-1 btn-style2" variant="warning">
-                                        <span className="span-style">
-                                            🛒 $0
-                                            {/* {pizza.price.toLocaleString('es-CL', { style: 'currency', currency: 'CLP' })} */}
-                                        </span>
-                                    </Button>
-                                </Link>
-                            </Nav>
+                        <div className="d-flex justify-content-center align-items-center">
+                            <div>
+                                <Badge className="mx-0 p-2 badge-style" bg="light" text="dark">{pizzasCount}</Badge>
+                            </div>
+                            <div>
+                                <Nav>
+                                    <Link to="/shopping-cart" className="brand-style">
+                                        <Button className="mx-3 py-1 btn-style2" variant="warning">
+                                            <span className="span-style">
+                                                🛒 {cartAmount.toLocaleString('es-CL', { style: 'currency', currency: 'CLP' })}
+                                            </span>
+                                        </Button>
+                                    </Link>
+                                </Nav>
+                            </div>
                         </div>
                     </Container>
                 </Navbar>

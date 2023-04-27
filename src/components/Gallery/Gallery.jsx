@@ -11,11 +11,21 @@ import ListGroup from 'react-bootstrap/ListGroup';
 
 export default function Gallery() {
 
-  const { pizzas } = useContext(Context)
+  const { pizzas, cartAmount, setCartAmount, pizzasCount, setPizzasCount } = useContext(Context)
+
 
   return (
     <div className="gallery-container p-3">
       {pizzas.map((pizza, i) => {
+
+        const pizzaPrice = pizza.price
+        // console.log(pizzaPrice)
+
+        const HandleOnClick = (e) => {
+          setCartAmount((cartAmount) => cartAmount + pizzaPrice)
+          setPizzasCount((pizzasCount) => pizzasCount + 1)
+        }
+
         return (
           <div key={i}>
             <div>
@@ -38,7 +48,13 @@ export default function Gallery() {
                   <Link to={`/pizza/${pizza.id}`} className="brand-style">
                     <Button className="mx-3 py-2 btn-style">Ver más 👀</Button>
                   </Link>
-                  <Button className="mx-3 py-2 btn-style" variant="warning">Añadir 🛒</Button>
+                  <Button
+                    className="mx-3 py-2 btn-style"
+                    variant="warning"
+                    onClick={HandleOnClick}
+                  >
+                    Añadir 🛒
+                  </Button>
                 </Card.Body>
               </Card>
             </div>

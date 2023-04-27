@@ -2,21 +2,28 @@
 import "../Pizza/Pizza.css"
 
 //components
+// import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { Context } from "../../MyContext";
 import { useParams } from "react-router-dom";
-import { Link } from "react-router-dom";
 import Card from 'react-bootstrap/Card';
 import { Button } from "react-bootstrap";
 
 export default function Pizza() {
 
-  const { pizzas } = useContext(Context)
+  const { pizzas, cartAmount, setCartAmount } = useContext(Context)
   const params = useParams()
 
   const getPizzaById = (id) => pizzas.find((pizza) => pizza.id === id)
   const pizza = getPizzaById(params.id)
   // console.log(pizza)
+
+  const pizzaPrice = pizza.price
+  // console.log(pizzaPrice)
+
+  const HandleOnClick = (e) => {
+    setCartAmount((cartAmount) => cartAmount + pizzaPrice)
+  }
 
   return (
     <div className="pizza-container" key={pizza.id}>
@@ -42,7 +49,13 @@ export default function Pizza() {
               </Card.Body>
               <Card.Body className="d-flex justify-content-between align-items-center">
                 <h2>Precio: {pizza.price.toLocaleString('es-CL', { style: 'currency', currency: 'CLP' })}</h2>
-                  <Button className="mx-3 py-2 btn-style" variant="warning">Añadir 🛒</Button>
+                <Button
+                  className="mx-3 py-2 btn-style"
+                  variant="warning"
+                  onClick={HandleOnClick}
+                >
+                  Añadir 🛒
+                </Button>
               </Card.Body>
             </div>
           </div>

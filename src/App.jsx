@@ -13,9 +13,7 @@ import Pizza from './views/Pizza/Pizza';
 import ShoppingCart from './views/ShoppingCart/ShoppingCart';
 
 function App() {
-  const [count, setCount] = useState(0)
 
-  const pollo = "Hola pollo ( °)> " + count
 
   return (
     <div>

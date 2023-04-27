@@ -43,7 +43,8 @@ export default function MyNavbar() {
                                 <Link to="/shopping-cart" className="brand-style">
                                     <Button className="mx-3 py-1 btn-style2" variant="warning">
                                         <span className="span-style">
-                                            🛒 $999.999
+                                            🛒 $0
+                                            {/* {pizza.price.toLocaleString('es-CL', { style: 'currency', currency: 'CLP' })} */}
                                         </span>
                                     </Button>
                                 </Link>

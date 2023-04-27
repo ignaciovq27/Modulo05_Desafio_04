@@ -42,9 +42,7 @@ export default function Pizza() {
               </Card.Body>
               <Card.Body className="d-flex justify-content-between align-items-center">
                 <h2>Precio: {pizza.price.toLocaleString('es-CL', { style: 'currency', currency: 'CLP' })}</h2>
-                <Link to={`/pizza/${pizza.id}`} className="brand-style">
                   <Button className="mx-3 py-2 btn-style" variant="warning">Añadir 🛒</Button>
-                </Link>
               </Card.Body>
             </div>
           </div>

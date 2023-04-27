@@ -43,21 +43,21 @@ export default function MyNavbar() {
                             </div> */}
                         </div>
 
-                        <div className="d-flex justify-content-center align-items-center">
-                            <div>
-                                <Badge className="mx-0 p-2 badge-style" bg="light" text="dark">{pizzasCount}</Badge>
-                            </div>
-                            <div>
-                                <Nav>
-                                    <Link to="/shopping-cart" className="brand-style">
-                                        <Button className="mx-3 py-1 btn-style2" variant="warning">
-                                            <span className="span-style">
-                                                🛒 {cartAmount.toLocaleString('es-CL', { style: 'currency', currency: 'CLP' })}
-                                            </span>
-                                        </Button>
-                                    </Link>
-                                </Nav>
-                            </div>
+                        <div className="position-relative">
+                            <Nav>
+                                <Link to="/shopping-cart" className="brand-style">
+                                    <Button className="mx-3 py-1 btn-style2 position-relative" variant="warning">
+                                        <span className="span-style">
+                                            <span>🛒<Badge
+                                                pill
+                                                className="mt-1 px-2 position-absolute top-0 start-0 translate-middle badge-style" bg="dark" text="light">
+                                                {pizzasCount}
+                                            </Badge></span>
+                                            {cartAmount.toLocaleString('es-CL', { style: 'currency', currency: 'CLP' })}
+                                        </span>
+                                    </Button>
+                                </Link>
+                            </Nav>
                         </div>
                     </Container>
                 </Navbar>

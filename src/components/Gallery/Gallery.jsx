@@ -11,7 +11,7 @@ import ListGroup from 'react-bootstrap/ListGroup';
 
 export default function Gallery() {
 
-  const { pizzas, cartAmount, setCartAmount, pizzasCount, setPizzasCount } = useContext(Context)
+  const { pizzas, cartAmount, setCartAmount, pizzasCount, setPizzasCount, setShowModal } = useContext(Context)
 
 
   return (
@@ -24,6 +24,7 @@ export default function Gallery() {
         const HandleOnClick = (e) => {
           setCartAmount((cartAmount) => cartAmount + pizzaPrice)
           setPizzasCount((pizzasCount) => pizzasCount + 1)
+          setShowModal(true)
         }
 
         return (

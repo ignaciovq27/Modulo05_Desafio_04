@@ -6,6 +6,7 @@ import { useState } from 'react'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { MyContext } from "./MyContext";
 import MyNavbar from './components/MyNavbar/MyNavbar';
+import MyModal from "./components/MyModal/MyModal";
 
 //views
 import Home from './views/Home/Home';
@@ -26,6 +27,8 @@ function App() {
         </div> */}
         <BrowserRouter>
           <MyNavbar />
+          <MyModal />
+
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/shopping-cart" element={<ShoppingCart />} />

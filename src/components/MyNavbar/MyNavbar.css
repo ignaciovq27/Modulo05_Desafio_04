@@ -16,6 +16,7 @@
     text-decoration: none;
     margin: 0;
     padding: 0;
+    user-select: none;
 }
 
 .brand-style:hover {
@@ -25,6 +26,7 @@
 .navbar-brand-style {
     margin: 0;
     padding: 0;
+    user-select: none;
 }
 
 .btn-style2 {

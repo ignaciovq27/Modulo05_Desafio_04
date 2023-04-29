@@ -11,7 +11,7 @@ import { Button } from "react-bootstrap";
 
 export default function Pizza() {
 
-  const { pizzas, cartAmount, setCartAmount, pizzasCount, setPizzasCount, setShowModal } = useContext(Context)
+  const { pizzas, cartAmount, setCartAmount, pizzasCount, setPizzasCount, setShowModal, addPizza } = useContext(Context)
   const params = useParams()
 
   const getPizzaById = (id) => pizzas.find((pizza) => pizza.id === id)
@@ -25,6 +25,7 @@ export default function Pizza() {
     setCartAmount((cartAmount) => cartAmount + pizzaPrice)
     setPizzasCount((pizzasCount) => pizzasCount + 1)
     setShowModal(true)
+    addPizza(pizza.id, pizza.img, pizza.name, pizza.price)
   }
 
   return (

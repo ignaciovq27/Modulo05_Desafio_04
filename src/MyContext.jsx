@@ -7,11 +7,28 @@ export const Context = createContext();
 
 export function MyContext({ children }) {
 
+    const [showModal, setShowModal] = useState(false);
     const [pizzas, setPizzas] = useState([])
     const [cartAmount, setCartAmount] = useState(0)
     const [pizzasCount, setPizzasCount] = useState(0)
-    const [showModal, setShowModal] = useState(false);
 
+    // Logica de añadir pizzas al carrito de compra
+    // 1) Se crea un estado con forma de array para guardar los datos de cada pizza añadida.
+    const [cartItems, setCartItems] = useState([
+        // {
+        //     id: "",
+        //     img: "",
+        //     name: "",
+        //     price: "",
+        // }
+    ])
+
+    // 2)Se crea una función para añadir los datos de la pizza al estado
+    // setCartItems actualiza el estado haciendo una copia de los datos de cartItems
+    // y luego se le añade un nuevo objeto con las propiedades id, img, name y price.
+    const addPizza = (id, img, name, price, quantity) => {
+        setCartItems([...cartItems, { id, img, name, price, quantity }])
+    }
 
     useEffect(() => {
         getData();
@@ -35,13 +52,16 @@ export function MyContext({ children }) {
 
     const globalState =
     {
+        showModal,
+        setShowModal,
         pizzas,
         cartAmount,
         setCartAmount,
         pizzasCount,
         setPizzasCount,
-        showModal,
-        setShowModal,
+        cartItems,
+        setCartItems,
+        addPizza,
     }
     return <Context.Provider value={globalState}>{children}</Context.Provider>
 }

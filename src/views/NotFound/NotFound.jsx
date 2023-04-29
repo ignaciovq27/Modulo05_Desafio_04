@@ -11,7 +11,7 @@ export default function NotFound() {
             <h4>La ruta que intentas consultar no existe (๑◕︵◕๑)</h4>
             <Nav>
                 <Link to="/" className="brand-style">
-                    <Button className="mx-3 py-2 btn-style2 position-relative" variant="primary">
+                    <Button className="mx-3 py-3 btn-style2" variant="primary">
                         🍕 INICIO 🍕
                     </Button>
                 </Link>

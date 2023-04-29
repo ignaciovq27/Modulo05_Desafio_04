@@ -1,17 +1,101 @@
 // css
+import "../ShoppingCart/ShoppingCart.css"
 
 //components
 import { useContext } from "react";
 import { Context } from "../../MyContext";
+import Card from 'react-bootstrap/Card';
+import { Button } from "react-bootstrap";
 
 export default function ShoppingCart() {
 
-  const { cartAmount } = useContext(Context)
+  const { cartAmount, setCartAmount, cartItems, setCartItems, pizzasCount, setPizzasCount } = useContext(Context)
+  // console.log(cartItems)
 
   return (
-    <div className="home-container">
-      <h4 className="mt-4 mb-0">Detalle del pedido:</h4>
-      <h2 className="my-3">Total: <span className="text-primary">{cartAmount.toLocaleString('es-CL', { style: 'currency', currency: 'CLP' })}</span></h2>
+    <div className="shoppingCart-container ">
+      <h4 className="my-3 text-center">Detalle del pedido:</h4>
+      <div>
+        <Card className="card-style mt-2 p-0">
+
+          {cartItems.map((item, i) => {
+
+            const pizzaPrice = item.price
+            const pizzaQuantity = item.quantity
+
+            const HandleOnClickAdd = (e) => {
+              setCartAmount((cartAmount) => cartAmount + pizzaPrice)
+              setPizzasCount((pizzasCount) => pizzasCount + 1)
+
+              const newCartItems = [...cartItems];
+              newCartItems[i].quantity += 1;
+              setCartItems(newCartItems);
+            }
+
+            const HandleOnClickRemove = (e) => {
+              if (item && item.quantity > 0) {
+                setCartAmount((cartAmount) => cartAmount - pizzaPrice);
+                setPizzasCount((pizzasCount) => pizzasCount - 1);
+
+                const newCartItems = cartItems.map((cartItem) => {
+                  if (cartItem.id === item.id) {
+                    return {
+                      ...cartItem,
+                      quantity: cartItem.quantity - 1,
+                    };
+                  }
+                  return cartItem;
+                }).filter((cartItem) => cartItem.quantity > 0);
+
+                setCartItems(newCartItems);
+                console.log(newCartItems);
+              }
+            };
+
+            return (
+              <div className="margin-style shoppingCart-container m-0 p-0" key={item.id}>
+                <div className="mx-2 p-0">
+                  <Card.Body className="d-flex justify-content-between align-items-center">
+                    <div className="d-flex align-items-center gap-3">
+                      <Card.Img className="card-img-style" src={item.img} />
+                      <Card.Title className="text-style m-0">{item.name}</Card.Title>
+                    </div>
+                    <div className="d-flex align-items-center">
+                      <h3 className="d-flex text-primary m-0">
+                        {item.price.toLocaleString('es-CL', { style: 'currency', currency: 'CLP' })}
+                      </h3>
+                      <Button
+                        className="mx-3 btn-style"
+                        variant="danger"
+                        disabled={pizzaQuantity > 0 ? false : true}
+                        onClick={HandleOnClickRemove}
+                      > - </Button>
+                      <h3 className="m-0">{pizzaQuantity}</h3>
+                      <Button
+                        className="mx-3 btn-style"
+                        variant="primary"
+                        onClick={HandleOnClickAdd}
+                      > + </Button>
+                    </div>
+                  </Card.Body>
+                  <hr className="m-0 p-0"></hr>
+                </div>
+              </div>
+            )
+          })}
+
+          <div className="d-flex flex-column justify-content-center align-items-center mx-5 mb-4">
+            <h2 className="my-3 ">🍕 Total: <span className="span-style">{cartAmount.toLocaleString('es-CL', { style: 'currency', currency: 'CLP' })}</span> 🍕</h2>
+            <Button
+              className="mx-3 py-2 btn-style"
+              variant="primary"
+              disabled={cartAmount > 0 ? false : true}
+            // onClick={HandleOnClick}
+            > Ir a pagar </Button>
+          </div>
+
+        </Card>
+      </div>
     </div>
   );
 }

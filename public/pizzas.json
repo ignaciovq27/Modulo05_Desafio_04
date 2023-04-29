@@ -10,7 +10,8 @@
       "orégano"
     ],
     "name": "napolitana",
-    "price": 5950
+    "price": 5950,
+    "quantity": 1
   },
   {
     "desc": "La pizza Española se caracteriza por tener una base de masa delgada y crujiente, cubierta con ingredientes típicos de la gastronomía del norte de España como el chorizo, el jamón serrano, la cebolla, el pimiento, el tomate y el queso.",
@@ -23,7 +24,8 @@
       "choricillo"
     ],
     "name": "española",
-    "price": 7250
+    "price": 7250,
+    "quantity": 1
   },
   {
     "desc": "La pizza Salame es una variedad de pizza que se elabora con una masa delgada y crujiente, cubierta con salsa de tomate, queso mozzarella y finas rodajas de salame. Es una pizza sencilla pero sabrosa, ideal para los amantes de la combinación de sabores fuertes.",
@@ -36,7 +38,8 @@
       "orégano"
     ],
     "name": "salame",
-    "price": 5990
+    "price": 5990,
+    "quantity": 1
   },
   {
     "desc": "La pizza Cuatro Estaciones es una pizza que se divide en cuatro secciones, cada una con un tipo diferente de cobertura que representa una estación del año: la primavera se cubre con alcachofas, la verano con jamón, la otoño con champiñones y la invierno con aceitunas. Es una pizza muy versátil y completa para aquellos que desean probar diferentes sabores en una sola pizza.",
@@ -49,7 +52,8 @@
       "champiñones"
     ],
     "name": "cuatro estaciones",
-    "price": 9590
+    "price": 9590,
+    "quantity": 1
   },
   {
     "desc": "La pizza Bacon es una variedad de pizza que se elabora con una base de masa delgada y crujiente, cubierta con salsa de tomate, queso mozzarella y tiras de bacon ahumado. Es una pizza deliciosa ideal para los amantes del sabor del bacon.",
@@ -62,7 +66,8 @@
       "orégano"
     ],
     "name": "bacon",
-    "price": 6450
+    "price": 6450,
+    "quantity": 1
   },
   {
     "desc": "La pizza Pollo picante es una variedad de pizza que se elabora con una base de masa a la piedra, cubierta con salsa de tomate, queso mozzarella, tiras de pollo grillé y pimientos. Es una pizza que combina sabores fuertes y pequeños toques de picante.",
@@ -75,6 +80,7 @@
       "orégano"
     ],
     "name": "pollo picante",
-    "price": 8500
+    "price": 8500,
+    "quantity": 1
   }
 ]

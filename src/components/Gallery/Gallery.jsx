@@ -13,7 +13,6 @@ export default function Gallery() {
 
   const { pizzas, cartAmount, setCartAmount, pizzasCount, setPizzasCount, setShowModal } = useContext(Context)
 
-
   return (
     <div className="gallery-container p-3">
       {pizzas.map((pizza, i) => {
@@ -28,7 +27,7 @@ export default function Gallery() {
         }
 
         return (
-          <div key={i}>
+          <div key={pizza.id}>
             <div>
               <Card className="card-style">
                 <Card.Img variant="top" src={pizza.img} />

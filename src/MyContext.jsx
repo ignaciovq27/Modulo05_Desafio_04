@@ -25,7 +25,8 @@ export function MyContext({ children }) {
             const data = await response.json()
 
             setPizzas(data)
-            console.log(pizzas)
+            // console.log(data)
+            // console.log(pizzas)
         }
         catch (error) {
             console.log(error)

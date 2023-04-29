@@ -12,6 +12,7 @@ import MyModal from "./components/MyModal/MyModal";
 import Home from './views/Home/Home';
 import Pizza from './views/Pizza/Pizza';
 import ShoppingCart from './views/ShoppingCart/ShoppingCart';
+import NotFound from './views/NotFound/NotFound';
 
 function App() {
 
@@ -33,6 +34,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/shopping-cart" element={<ShoppingCart />} />
             <Route path="/pizza/:id" element={<Pizza />} />
+            <Route path='*' element={<NotFound />} />
           </Routes>
         </BrowserRouter>
       </MyContext>

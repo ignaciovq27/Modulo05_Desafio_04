@@ -1,5 +1,5 @@
 // css
-import "./gallery.css";
+import "./Gallery.css"
 
 //components
 import { Link } from "react-router-dom";

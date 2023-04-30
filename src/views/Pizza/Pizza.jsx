@@ -2,7 +2,6 @@
 import "../Pizza/Pizza.css"
 
 //components
-// import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { Context } from "../../MyContext";
 import { useParams } from "react-router-dom";
@@ -11,15 +10,13 @@ import { Button } from "react-bootstrap";
 
 export default function Pizza() {
 
-  const { pizzas, cartAmount, setCartAmount, pizzasCount, setPizzasCount, setShowModal, addPizza } = useContext(Context)
+  const { pizzas, setCartAmount, setPizzasCount, setShowModal, addPizza } = useContext(Context)
   const params = useParams()
 
   const getPizzaById = (id) => pizzas.find((pizza) => pizza.id === id)
   const pizza = getPizzaById(params.id)
-  // console.log(pizza)
 
   const pizzaPrice = pizza.price
-  // console.log(pizzaPrice)
 
   const HandleOnClick = (e) => {
     setCartAmount((cartAmount) => cartAmount + pizzaPrice)

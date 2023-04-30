@@ -27,8 +27,25 @@ export function MyContext({ children }) {
     // 2)Se crea una función para añadir los datos de la pizza al estado
     // setCartItems actualiza el estado haciendo una copia de los datos de cartItems
     // y luego se le añade un nuevo objeto con las propiedades id, img, name, price y quantity.
-    const addPizza = (id, img, name, price, quantity) => {
-        setCartItems([...cartItems, { id, img, name, price, quantity }])
+
+    // const addPizza = (id, img, name, price, quantity) => {
+    //     setCartItems([...cartItems, { id, img, name, price, quantity }])
+    // }
+
+    function addPizza(id, img, name, price, quantity) {
+        const existingPizza = cartItems.find((pizza) => pizza.id === id);
+        if (existingPizza) {
+            const updatedCartItems = cartItems.map((pizza) => {
+                if (pizza.id === id) {
+                    return { ...pizza, quantity: pizza.quantity + 1 };
+                }
+                return pizza;
+            });
+            setCartItems(updatedCartItems);
+        } else {
+            const newPizza = { id, img, name, price, quantity };
+            setCartItems([...cartItems, newPizza]);
+        }
     }
 
     useEffect(() => {

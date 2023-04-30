@@ -20,20 +20,14 @@ function App() {
   return (
     <div>
       <MyContext>
-        {/* <div>
-          <h1>{pollo}</h1>
-          <button onClick={() => setCount((count) => count + 1)}>
-            count
-          </button>
-        </div> */}
         <BrowserRouter>
           <MyNavbar />
           <MyModal />
 
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/shopping-cart" element={<ShoppingCart />} />
             <Route path="/pizza/:id" element={<Pizza />} />
+            <Route path="/shopping-cart" element={<ShoppingCart />} />
             <Route path='*' element={<NotFound />} />
           </Routes>
         </BrowserRouter>

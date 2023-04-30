@@ -25,7 +25,7 @@ export default function Pizza() {
     setCartAmount((cartAmount) => cartAmount + pizzaPrice)
     setPizzasCount((pizzasCount) => pizzasCount + 1)
     setShowModal(true)
-    addPizza(pizza.id, pizza.img, pizza.name, pizza.price)
+    addPizza(pizza.id, pizza.img, pizza.name, pizza.price, 1);
   }
 
   return (

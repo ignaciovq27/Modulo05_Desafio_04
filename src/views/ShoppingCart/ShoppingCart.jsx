@@ -63,7 +63,7 @@ export default function ShoppingCart() {
                         {item.price.toLocaleString('es-CL', { style: 'currency', currency: 'CLP' })}
                       </h3>
                       <Button
-                        className="mx-3 btn-style"
+                        className="mx-3 btn-style px-3"
                         variant="danger"
                         disabled={item.quantity > 0 ? false : true}
                         onClick={handleOnClickRemove}
@@ -82,18 +82,27 @@ export default function ShoppingCart() {
             )
           })}
 
-          <div className="d-flex flex-column justify-content-center align-items-center mx-5 mb-4">
-            <h2 className="my-3 ">🍕 Total: <span className="span-style">{cartAmount.toLocaleString('es-CL', { style: 'currency', currency: 'CLP' })}</span> 🍕</h2>
-            <Button
-              className="mx-3 py-2 btn-style"
-              variant="primary"
-              disabled={cartAmount > 0 ? false : true}
-            // onClick={HandleOnClick}
-            > Ir a pagar </Button>
+          <div className="d-flex flex-column justify-content-center align-items-center mx-5 my-4">
+            {cartAmount > 0
+              ?
+              <div className="d-flex flex-column justify-content-center align-items-center mx-5 mb-2">
+                <h2 className="my-3 span-style">
+                  🍕 Total: {cartAmount.toLocaleString('es-CL', { style: 'currency', currency: 'CLP' })} 🍕
+                </h2>
+                <Button
+                  className="mx-3 py-2 btn-style btnFontSize-style"
+                  variant="primary"
+                  disabled={cartAmount > 0 ? false : true}
+                // onClick={HandleOnClick}
+                > Ir a pagar
+                </Button>
+              </div>
+              :
+              <h3 className="my-2">Tu carrito está vacío 🍽️.</h3>
+            }
           </div>
-
         </Card>
-      </div>
-    </div>
+      </div >
+    </div >
   );
 }

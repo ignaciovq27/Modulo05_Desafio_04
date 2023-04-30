@@ -20,21 +20,19 @@ export default function ShoppingCart() {
 
           {cartItems.map((item, i) => {
 
-            const pizzaPrice = item.price
-            const pizzaQuantity = item.quantity
-
-            const HandleOnClickAdd = (e) => {
-              setCartAmount((cartAmount) => cartAmount + pizzaPrice)
+            const handleOnClickAdd = (e) => {
+              setCartAmount((cartAmount) => cartAmount + item.price)
               setPizzasCount((pizzasCount) => pizzasCount + 1)
 
               const newCartItems = [...cartItems];
               newCartItems[i].quantity += 1;
               setCartItems(newCartItems);
+              console.log(newCartItems);
             }
 
-            const HandleOnClickRemove = (e) => {
-              if (item && item.quantity > 0) {
-                setCartAmount((cartAmount) => cartAmount - pizzaPrice);
+            const handleOnClickRemove = (e) => {
+              if (item.quantity > 0) {
+                setCartAmount((cartAmount) => cartAmount - item.price);
                 setPizzasCount((pizzasCount) => pizzasCount - 1);
 
                 const newCartItems = cartItems.map((cartItem) => {
@@ -67,14 +65,14 @@ export default function ShoppingCart() {
                       <Button
                         className="mx-3 btn-style"
                         variant="danger"
-                        disabled={pizzaQuantity > 0 ? false : true}
-                        onClick={HandleOnClickRemove}
+                        disabled={item.quantity > 0 ? false : true}
+                        onClick={handleOnClickRemove}
                       > - </Button>
-                      <h3 className="m-0">{pizzaQuantity}</h3>
+                      <h3 className="m-0">{item.quantity}</h3>
                       <Button
                         className="mx-3 btn-style"
                         variant="primary"
-                        onClick={HandleOnClickAdd}
+                        onClick={handleOnClickAdd}
                       > + </Button>
                     </div>
                   </Card.Body>

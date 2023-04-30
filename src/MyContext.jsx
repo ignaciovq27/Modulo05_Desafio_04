@@ -20,12 +20,13 @@ export function MyContext({ children }) {
         //     img: "",
         //     name: "",
         //     price: "",
+        //     quantity: "",
         // }
     ])
 
     // 2)Se crea una función para añadir los datos de la pizza al estado
     // setCartItems actualiza el estado haciendo una copia de los datos de cartItems
-    // y luego se le añade un nuevo objeto con las propiedades id, img, name y price.
+    // y luego se le añade un nuevo objeto con las propiedades id, img, name, price y quantity.
     const addPizza = (id, img, name, price, quantity) => {
         setCartItems([...cartItems, { id, img, name, price, quantity }])
     }

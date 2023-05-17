@@ -1,7 +1,7 @@
 //components
 import { useState } from 'react';
 import { useEffect } from 'react';
-import { createContext } from 'react'
+import { createContext } from 'react';
 
 export const Context = createContext();
 
